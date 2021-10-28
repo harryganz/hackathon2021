@@ -2,6 +2,7 @@ import Header from './Header';
 import SearchContainer from './SearchContainer';
 import MonsterList from './MonsterList';
 import Container from "./Container";
+import Encounter from "./Encounter";
 
 import './App.css';
 import { useReducer } from 'react';
@@ -9,25 +10,33 @@ import { useReducer } from 'react';
 const initialState = {};
 
 function monsterReducer(state, action) {
+  let nextState = {};
   switch(action.type) {
     case 'new_monster':
       if (!state[action.payload.slug]) {
-        state = {...state};
         state[action.payload.slug] = {count: 1, monster: action.payload.monster};
       }
-      return state;
+      return {...state};
     case 'increment_monster':
-      state = {...state};
-      state[action.payload.slug].count++;
-      return state;
-    case 'decrement_monster':
-      state = {...state};
-      if (state[action.payload.slug].count === 1) {
-        delete state[action.payload.slug];
-      } else {
-        state[action.payload.slug].count--;
+      for (let slug in state) {
+        if (slug === action.payload.slug) {
+          nextState[slug] = {count: state[slug].count + 1, monster: state[slug].monster}
+        } else {
+          nextState[slug] = state[slug];
+        }
       }
-      return state;
+      return nextState;
+    case 'decrement_monster':
+      for (let slug in state) {
+        if (slug === action.payload.slug) {
+          if (state[slug].count !== 1) {
+            nextState[slug] = {count: state[slug].count - 1, monster: state[slug].monster}
+          }
+        } else {
+          nextState[slug] = state[slug]
+        }
+      }
+      return nextState;
     default:
       throw new Error('Unexpected action type');
   }
@@ -47,6 +56,7 @@ function App() {
           monsters={state} 
           add={(slug) => dispatch({type: 'increment_monster', payload: {slug}})} 
           remove={(slug) => dispatch({type: 'decrement_monster', payload: {slug}})}/>
+      <Encounter monsters={state}/>
       </Container>
     </div>
   );

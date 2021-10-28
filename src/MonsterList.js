@@ -13,7 +13,7 @@ export default function MonsterList({monsters, add, remove}) {
     return (
         <Card className='monster-list'>
             <Card.Header>
-                <h3>Encounter</h3>
+                <h3>Monsters</h3>
             </Card.Header>
             <Card.Body className='monster-list-body'>
                 {
