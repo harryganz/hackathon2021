@@ -38,6 +38,11 @@ input {
   padding: 10px;
   border-radius: 4px;
 }
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
 .form-group {
   display: flex;
   flex-direction: column;

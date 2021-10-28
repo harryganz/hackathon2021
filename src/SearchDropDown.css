@@ -6,7 +6,6 @@
     border-radius: 0 0 4px 4px;
     box-shadow: 0.1em 0.1em 1px 1px rgba(0, 0, 0, 0.1);
     width: 580px;
-    transform: translateX(200px);
     margin-top: -1px;
     z-index: 1000;
 }
