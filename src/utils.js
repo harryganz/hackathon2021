@@ -26,3 +26,15 @@ export function ClickOutsideEffect(ref, onEffect) {
         }
     });
 }
+
+export function calculateXp(cr) {
+    let numericCr = 0.0;
+    if (cr.indexOf('/') >= 0 && cr.length == 3) {
+        let numerator = cr.substring(0,1);
+        let denominator = cr.substring(2,3);
+        numericCr = parseFloat(numerator)/parseFloat(denominator);
+    } else {
+        numericCr = parseFloat(cr)
+    }
+    return numericCr * 200;
+}
