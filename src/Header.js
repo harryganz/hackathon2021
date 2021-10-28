@@ -1,7 +1,9 @@
+import './Header.css';
+
 function Header({title}) {
     return (
         <header>
-            <h1>5e Encounter Creator</h1>
+            <h1>{title}</h1>
         </header>
     );
 }

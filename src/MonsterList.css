@@ -1,0 +1,19 @@
+.monster-list {
+    width: 600px;
+    box-shadow: 0.1em 0.1em 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.monster-list-header {
+    background-color: #e3e3e3;
+    padding: 1em;
+    border-radius: 4px 4px 0 0;
+}
+
+.monster-list-body {
+    border: 1px solid #e3e3e3;
+    min-height: 200px;
+}
+
+.empty-list-message {
+    text-align: center;
+}

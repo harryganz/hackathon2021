@@ -1,11 +1,9 @@
-import './Container.css';
+import "./Container.css";
 
-function Container({children}) {
+export default function Container({children}) {
     return (
-        <div className='flex-container'>
+        <div className='container'>
             {children}
         </div>
-    );
+    )
 }
-
-export default Container;

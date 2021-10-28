@@ -2,7 +2,7 @@ import { useRef } from "react";
 import SearchResult from "./SearchResult";
 import { ClickOutsideEffect } from "./utils";
 
-function SearchDropDown({loading, results, showResults, setShowResults}) {
+function SearchDropDown({loading, results, showResults, setShowResults, addNewMonster}) {
     const searchDropDownRef = useRef(null);
     ClickOutsideEffect(searchDropDownRef, () => setShowResults(false))
     if (!showResults) {
@@ -14,7 +14,7 @@ function SearchDropDown({loading, results, showResults, setShowResults}) {
     if (results.length === 0) {
         return (<div ref={searchDropDownRef} className="search-dropdown empty">No Results.</div>);
     }
-    let searchResults = results.map((el, i) => <SearchResult key={i} result={el}/>);
+    let searchResults = results.map((el, i) => <SearchResult key={i} result={el} onClick={addNewMonster}/>);
     return (
         <div ref={searchDropDownRef} className="search-dropdown">
             <ul>{searchResults}</ul>

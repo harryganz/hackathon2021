@@ -30,7 +30,7 @@ function getSearchResults(searchTerm, setFetching, setSearchResults, setShowResu
         });
 }
 
-function SearchContainer() {
+function SearchContainer({addNewMonster}) {
     const [searchResults, setSearchResults] = useState([]);
     const [isFetching, setFetching] = useState(false);
     const [showResults, setShowResults] = useState(false);
@@ -40,7 +40,7 @@ function SearchContainer() {
     return (
         <div className='search-container'>
             <SearchInput onChange={searchHandler}/>
-            <SearchDropDown results={searchResults} loading={isFetching} showResults={showResults} setShowResults={setShowResults}/>
+            <SearchDropDown results={searchResults} loading={isFetching} showResults={showResults} setShowResults={setShowResults} addNewMonster={addNewMonster}/>
         </div>
     );
 }
