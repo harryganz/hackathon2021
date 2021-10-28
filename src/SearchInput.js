@@ -4,8 +4,10 @@ import './SearchInput.css';
 
 function SearchInput({onChange}) {
     return (
-        <input type='text' onFocus={e => debounce(onChange(e.target.value))} onChange={e => debounce(onChange(e.target.value))}/>
-    )
+        <div className='search-input'>
+            <input placeholder='Search for Monster' type='text' onFocus={e => debounce(onChange(e.target.value))} onChange={e => debounce(onChange(e.target.value))}/>
+        </div>
+    );
 }
 
 export default SearchInput;

@@ -1,6 +1,7 @@
 import SearchInput from "./SearchInput";
 import SearchDropDown from "./SearchDropDown";
 import { useState } from "react";
+import Card from "./Card";
 
 function getSearchResults(searchTerm, setFetching, setSearchResults, setShowResults) {
     if (!searchTerm) {

@@ -42,11 +42,11 @@ function App() {
     <div id="page-content">
       <Header title='5e Encounter Creator'/>
       <Container>
+      <SearchContainer addNewMonster={(monster) => dispatch({type: 'new_monster', payload: {slug: monster.slug, monster: monster}})}/>
       <MonsterList 
           monsters={state} 
           add={(slug) => dispatch({type: 'increment_monster', payload: {slug}})} 
           remove={(slug) => dispatch({type: 'decrement_monster', payload: {slug}})}/>
-        <SearchContainer addNewMonster={(monster) => dispatch({type: 'new_monster', payload: {slug: monster.slug, monster: monster}})}/>
       </Container>
     </div>
   );
