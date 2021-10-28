@@ -29,3 +29,29 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.btn-group > *:first-child {
+  margin-left: 0;
+}
+.btn-group > *:last-child {
+  margin-right: 0;
+}
+.btn-group > * {
+  display: inline-block;
+  margin: 0 0.25em;
+}
+.btn {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.btn.success {
+  background-color: #adff2f;
+}
+.btn.success:hover {
+  background-color: #008000;
+}
+.btn.warn {
+  background-color: #ff4500;
+}
+.btn.warn:hover {
+  background-color: #ff0000;
+}

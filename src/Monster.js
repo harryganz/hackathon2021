@@ -9,7 +9,11 @@ export default function Monster({monster, count, add, remove}) {
             <div>AC: {armor_class}</div>
             <div>HP: {hit_points}</div>
             <div>CR: {challenge_rating}</div>
-            <div><button onClick={() => remove(slug)}>-</button><span>{count}</span><button onClick={() => add(slug)}>+</button></div>
+            <div className='btn-group'>
+                <button className='btn warn' onClick={() => remove(slug)}>-</button>
+                <span>Count: {count}</span>
+                <button className='btn success' onClick={() => add(slug)}>+</button>
+            </div>
         </div>
     );
 }

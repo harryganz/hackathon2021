@@ -1,3 +1,7 @@
 .monster {
     padding: 20px;
 }
+
+.monster > div {
+    padding: 0.25em 0;
+}
