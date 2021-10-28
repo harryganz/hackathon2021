@@ -4,13 +4,14 @@ import { ClickOutsideEffect } from "./utils";
 
 import "./SearchDropDown.css";
 
-function SearchDropDown({loading, results, showResults, setShowResults, addNewMonster}) {
+function SearchDropDown({loading, results, showResults, setShowResults, addNewMonster, clearQuery}) {
     const searchDropDownRef = useRef(null);
     ClickOutsideEffect(searchDropDownRef, () => setShowResults(false))
     
     const addNewMonsterEffect = (monster) => {
         addNewMonster(monster);
         setShowResults(false);
+        clearQuery();
     }
 
     if (!showResults) {

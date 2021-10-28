@@ -1,6 +1,6 @@
 import SearchInput from "./SearchInput";
 import SearchDropDown from "./SearchDropDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function getSearchResults(searchTerm, setFetching, setSearchResults, setShowResults) {
     if (!searchTerm) {
@@ -34,13 +34,18 @@ function SearchContainer({addNewMonster}) {
     const [searchResults, setSearchResults] = useState([]);
     const [isFetching, setFetching] = useState(false);
     const [showResults, setShowResults] = useState(false);
+    const [query, setQuery] = useState('');
 
-    const searchHandler = (searchTerm) => getSearchResults(searchTerm, setFetching, setSearchResults, setShowResults);
+    const clearQuery = () => setQuery('');
+
+    useEffect(() => {
+        getSearchResults(query, setFetching, setSearchResults, setShowResults);
+    }, [query]);
 
     return (
         <div className='search-container'>
-            <SearchInput onChange={searchHandler}/>
-            <SearchDropDown results={searchResults} loading={isFetching} showResults={showResults} setShowResults={setShowResults} addNewMonster={addNewMonster}/>
+            <SearchInput setQuery={setQuery} query={query}/>
+            <SearchDropDown results={searchResults} loading={isFetching} showResults={showResults} setShowResults={setShowResults} addNewMonster={addNewMonster} clearQuery={clearQuery}/>
         </div>
     );
 }
