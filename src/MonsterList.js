@@ -1,5 +1,6 @@
 import Monster from "./Monster";
-import "./MonsterList.css"
+import Card from "./Card";
+import "./MonsterList.css";
 
 
 export default function MonsterList({monsters, add, remove}) {
@@ -10,17 +11,17 @@ export default function MonsterList({monsters, add, remove}) {
     }
 
     return (
-        <div className='monster-list'>
-            <div className='monster-list-header'>
+        <Card className='monster-list'>
+            <Card.Header>
                 <h3>Encounter</h3>
-            </div>
-            <div className='monster-list-body'>
+            </Card.Header>
+            <Card.Body className='monster-list-body'>
                 {
                     monsterList.length > 0 ?
                     monsterList :
                     <p className='empty-list-message'>No Monsters Added</p>
                 }
-            </div>
-        </div>
+            </Card.Body>
+        </Card>
     );
 }

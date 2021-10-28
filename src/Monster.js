@@ -1,3 +1,5 @@
+import "./Monster.css";
+
 export default function Monster({monster, count, add, remove}) {
     const {name, challenge_rating, size, type, alignment, armor_class, hit_points, slug} = monster;
     return (
